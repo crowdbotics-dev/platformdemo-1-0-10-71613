@@ -65,14 +65,7 @@ const EventHome = () => {
             <Text style={styles.greetingText}>Good Morning,</Text>
             <Text style={styles.username}>{user.name}</Text>
             <Input text="Search" value={search} onChange={text => setSearch(text)} containerStyle={styles.inputContainer} />
-            <View style={styles.listHeader}>
-              <Text style={styles.headerHeading}>Upcoming Event</Text>
-              <Text style={styles.headerSubText}>View All</Text>
-            </View>
-            <FlatList data={upcomingEvents} renderItem={({
-        item
-      }) => <UpcomingEvent event={item} />} keyExtractor={item => item.id.toString()} horizontal={true} showsHorizontalScrollIndicator={false} />
-            <TabView tabTitles={["Event", "Event", "Event", "Event"]} selected={selectedTab} onPress={index => setSelectedTab(index)} style={styles.tabView} />
+            
           </View>} data={events} renderItem={({
       item
     }) => <Event event={item} />} keyExtractor={item => item.id} showsVerticalScrollIndicator={false} />
@@ -244,11 +237,7 @@ const TabView = ({
     backgroundColor: backgroundColor || "#F1F1F1"
   };
   const propStyle = style || {};
-  return <View style={[tabViewStyles.paletteContainer, backgroundColorStyle, propStyle]}>
-      {tabTitles.map((title, index) => <Pressable onPress={() => onPress(index)} style={index === selected ? [tabViewStyles.selected, tabColorStyle] : [tabViewStyles.unSelected, backgroundColorStyle]} key={index}>
-          <Text>{title}</Text>
-        </Pressable>)}
-    </View>;
+  return;
 };
 
 const tabViewStyles = StyleSheet.create({

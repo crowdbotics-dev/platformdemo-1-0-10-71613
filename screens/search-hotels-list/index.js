@@ -45,9 +45,9 @@ const SearchHotelsList = () => {
       <FlatList style={styles.list} ListHeaderComponentStyle={styles.listHeader} ListHeaderComponent={() => <View>
             <Input text="Search" value={search} onChange={() => setSearch()} icon={require("./assets/searchIcon.png")} placeholder='Try "Work Trip in Paris"' />
             <View style={styles.filtersContainer}>
-              <View style={styles.filter}>
+              <Pressable><View style={styles.filter}>
                 <Text style={styles.filterText}>Dates</Text>
-              </View>
+              </View></Pressable>
               <View style={styles.filter}>
                 <Text style={styles.filterText}>Guest</Text>
               </View>
