@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Image, FlatList, Pressable, TextInput } from "react-native";
 
@@ -274,6 +275,7 @@ const tabViewStyles = StyleSheet.create({
 const Event = ({
   event
 }) => {
+  const navigation = useNavigation();
   return <View style={eventStyles.container}>
       <Image source={event.image} style={eventStyles.image} />
       <View style={eventStyles.content}>
@@ -283,8 +285,10 @@ const Event = ({
         </Text>
         <Text style={eventStyles.location}>{event.location}</Text>
       </View>
-      <Pressable style={eventStyles.btn}>
-        <Text style={eventStyles.btnText}>Join</Text>
+      <Pressable style={eventStyles.btn} onPress={() => {
+      navigation.navigate("eventDetails");
+    }}>
+        <Text style={eventStyles.btnText}>View</Text>
       </Pressable>
     </View>;
 };
